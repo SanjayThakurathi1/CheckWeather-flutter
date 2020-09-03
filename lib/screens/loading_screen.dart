@@ -2,10 +2,9 @@ import 'dart:io';
 import 'package:clima/screens/location_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:clima/services/weather.dart';
-
 import 'package:connectivity/connectivity.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 const apikey = '2299661cdb9b4d1c6f24be48dc8f0167';
 
@@ -24,7 +23,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
     try {
       InternetAddress.lookup("www.google.com").then((result) {
         if (result.isNotEmpty && result[0].rawAddress.isNotEmpty) {
-          getlocationdata();
+          setState(() {
+            getlocationdata();
+          });
         } else {
           showdialog();
         }
@@ -43,9 +44,9 @@ class _LoadingScreenState extends State<LoadingScreen> {
       previous = conn;
     });
   }
+
   @override
-  void dispose()
-  {
+  void dispose() {
     super.dispose();
   }
 
@@ -87,8 +88,10 @@ class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     super.initState();
-    checkinternet();
-    
+
+    setState(() {
+      checkinternet();
+    });
   }
 
   @override

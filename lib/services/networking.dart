@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 var jsondata;
 
-class Networking
+/*class Networking
 {
   Networking(this.url);
    final String url;
@@ -17,4 +17,25 @@ class Networking
     
   
   }
+  */
+
+  class Networking
+{
+  Networking(this.url);
+   final String url;
+   String decodedata;
+  Future<dynamic> getlivedata() async {
+    http.Response response = await http.get(url);
+    if(response.statusCode==200)
+    {
+      String data = response.body;
+      return jsonDecode(data);
+    }
+    else 
+    {
+      print(response.statusCode);
+    }
+    }
+    
   
+  }

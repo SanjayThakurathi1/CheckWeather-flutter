@@ -13,8 +13,8 @@ dependencies:
   cupertino_icons: ^0.1.2
   geolocator: ^5.3.1
   http: ^0.12.1
-  flutter_spinkit: ^4.1.2+1
-  connectivity: ^0.4.8+6  
+  flutter_spinkit: ^4.1.2
+  connectivity: ^0.4.8 
 
 dev_dependencies:
   flutter_test:
